@@ -1,4 +1,30 @@
 摘自 http://huziketang.mangojuice.top/books/react/lesson41   
+```
+├─ .idea
+│  ├─ make-react-redux.iml
+│  ├─ misc.xml
+│  └─ modules.xml
+├─ public
+│  ├─ favicon.ico
+│  ├─ index.html
+│  └─ manifest.json
+├─ src
+│  ├─ App.css
+│  ├─ App.js
+│  ├─ App.test.js
+│  ├─ Content.js
+│  ├─ Header.js
+│  ├─ ThemeSwitch.js
+│  ├─ index.css
+│  ├─ index.js
+│  ├─ logo.svg
+│  ├─ react-redux.js
+│  └─ registerServiceWorker.js
+├─ .gitignore
+├─ README.md
+├─ package-lock.json
+└─ package.json
+```
 React.js 除了状态提升以外并没有更好的办法帮我们解决组件之间共享状态的问题，而使用 context 全局变量让程序不可预测。通过 Redux ，我们知道 store 里面的内容是不可以随意修改的，而是通过 dispatch 才能变更里面的 state。所以我们尝试把 store 和 context 结合起来使用，可以兼顾组件之间共享状态问题和共享状态可能被任意修改的问题。   
 
 第一个版本的 store 和 context 结合有诸多缺陷，有大量的重复逻辑和对 context 的依赖性过强。我们尝试通过构建一个高阶组件 connect 函数的方式，把所有的重复逻辑和对 context 的依赖放在里面 connect 函数里面，而其他组件保持 Pure（Dumb） 的状态，让 connect 跟 context 打交道，然后通过 props 把参数传给普通的组件。   
